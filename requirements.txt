@@ -1,6 +1,0 @@
-streamlit
-polars
-pandas
-ydata-profiling
-scikit-learn
-joblib
