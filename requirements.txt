@@ -23,3 +23,6 @@ pydeck==0.9.1
 
 # Optional extras (if you need them)
 wordcloud==1.9.4
+
+# Required for ydata-profiling (provides pkg_resources)
+setuptools>=75.0.0
