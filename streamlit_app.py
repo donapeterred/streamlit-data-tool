@@ -57,10 +57,20 @@ if uploaded_file is not None:
 
     st.subheader("Simple ML Prediction")
 
-    if st.checkbox("Train Logistic Regression Model"):
-        target_col = st.selectbox("Select target column (binary classification only)", cleaned_df.columns)
-        ml_df = cleaned_df.to_pandas() if use_pl else cleaned_df
+    ml_df = cleaned_df.to_pandas() if use_pl else cleaned_df
 
+    # Option to create a binary target from 'Sold Quantity' column if it exists and user wants
+    if 'Sold Quantity' in ml_df.columns:
+        create_binary = st.checkbox("Create binary target from 'Sold Quantity' (> 0 means 1, else 0)")
+        if create_binary:
+            ml_df['binary_target'] = (ml_df['Sold Quantity'] > 0).astype(int)
+            target_col = 'binary_target'
+        else:
+            target_col = st.selectbox("Select target column (binary classification only)", ml_df.columns)
+    else:
+        target_col = st.selectbox("Select target column (binary classification only)", ml_df.columns)
+
+    if st.checkbox("Train Logistic Regression Model"):
         if ml_df[target_col].nunique() == 2:
             X = ml_df.drop(target_col, axis=1)
             y = ml_df[target_col]
@@ -100,4 +110,3 @@ if uploaded_file is not None:
                     st.error(f"Invalid input: {e}")
 else:
     st.info("Please upload a CSV file to get started.")
-
