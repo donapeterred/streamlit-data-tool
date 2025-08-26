@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="872a5353-00d6-4f59-abe8-977e0780eadb" name="Changes" comment="" />
+    <list default="true" id="872a5353-00d6-4f59-abe8-977e0780eadb" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -33,7 +35,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "Rebasing main",
+    "git-widget-placeholder": "Rebasing stream",
     "last_opened_file_path": "/Users/donapeter/streamlit-data-tool",
     "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
   }
