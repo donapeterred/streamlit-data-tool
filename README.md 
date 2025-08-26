@@ -1,0 +1,79 @@
+# Streamlit Data-Cleansing, Profiling & ML Tool
+
+## Overview
+
+This Streamlit web app allows users to upload CSV data, perform data cleansing, generate detailed profiling reports, and train a simple logistic regression ML model for binary classification.
+
+---
+
+## Tech Stack Choices
+
+### Polars vs Pandas
+
+- Polars: A fast DataFrame library optimized for large datasets and performance. It uses a Rust backend enabling rapid data processing with lower memory use.
+- Pandas: The most popular Python data analysis library, known for rich functionality and compatibility with ML libraries.
+
+Current deployment uses Pandas only due to better compatibility with Streamlit Cloud and dependency stability. Polars integration is used locally or planned for future enhancements.
+
+---
+
+## Data Profiling Integration
+
+- Utilizes the `ydata-profiling` package to generate exhaustive, interactive data profiling reports.
+- Reports show data types, missing values, correlations, and distributions, assisting in understanding and cleaning data efficiently.
+- Profiling results are embedded directly within the Streamlit app interface for ease of use.
+
+---
+
+## Machine Learning Model Use-Case
+
+- Model: Logistic Regression (max iterations: 1000).
+- Task: Binary classification on user-uploaded datasets with a binary target column.
+- Features: Categorical to numeric encoding via pandas category codes.
+- Training: 80/20 train-test split with accuracy displayed on test set.
+- Persistence: Model saved as `logistic_model.joblib` for later predictions.
+- Prediction: Users input feature values to get predictions from the deployed model.
+
+---
+
+## Tips for Handling Large Files & Performance Optimization
+
+- Streamlit Cloud has upload file size limits (generally under 100MB advisable).
+- Use sampling or smaller subsets when generating profiling reports to reduce processing times.
+- Polars can be optionally used locally to handle larger datasets more efficiently.
+- Employ Streamlit's caching decorators (`@st.cache_data`) to avoid repetitive expensive computations.
+- Offload heavy preprocessing and training where appropriate.
+- Use download buttons that convert DataFrames in-memory rather than writing files to disk for smoother user experience.
+
+---
+
+## Requirements
+
+- Python 3.12+
+- Streamlit
+- Pandas
+- scikit-learn
+- ydata-profiling
+- joblib
+
+---
+
+## Deployment Instructions
+
+- Tested with Streamlit Cloud, specify Python 3.12 in `.streamlit/config.toml`
+- Include all dependencies in `requirements.txt`
+- Upload the repository to GitHub and connect it to Streamlit Cloud for seamless deployment
+
+---
+
+## Usage
+
+1. Upload CSV data.
+2. Preview and explore raw data.
+3. Generate data profiling report.
+4. Choose cleaning options: drop missing or duplicate data.
+5. Download cleaned dataset.
+6. Train logistic regression on chosen binary target.
+7. Save and use model for feature-based predictions.
+
+______________________
